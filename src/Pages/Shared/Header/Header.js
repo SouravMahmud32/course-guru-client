@@ -10,7 +10,6 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import ReactTooltip from 'react-tooltip';
 import { FaCuttlefish } from "react-icons/fa";
-import Switch from "react-switch";
 import ReactSwitch from "react-switch";
 
 const Header = () => {
