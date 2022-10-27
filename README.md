@@ -12,11 +12,11 @@ Easy to enroll
 Handy cariculam easy to learn
 
 ## Table of Contents
-1. [Technologies](#reactjs)
-2. [Technologies](#react-router-dom)
-3. [Technologies](#react-icons)
-4. [Technologies](#nodejs)
-4. [Technologies](#firebase)
+1.#reactjs
+2.#react-router-dom
+3.#react-icons
+4.#nodejs
+4.#firebase
 
 ***
 

@@ -10,9 +10,11 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import ReactTooltip from 'react-tooltip';
 import { FaCuttlefish } from "react-icons/fa";
+import Switch from "react-switch";
+import ReactSwitch from "react-switch";
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const {user, toggleTheme, theme, logOut} = useContext(AuthContext);
 
     const handleLogOut = () =>{
         logOut()
@@ -52,6 +54,9 @@ const Header = () => {
               : <FaUser data-tip="guest"></FaUser>
               }
             </Nav.Link>
+            <div style={{width: '70px'}}>
+            <ReactSwitch onChange={toggleTheme} checked={theme === 'dark'}></ReactSwitch>
+            </div>
           </Nav>
           <div className="d-lg-none">
             <LeftSideNav></LeftSideNav>

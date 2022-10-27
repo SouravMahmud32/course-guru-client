@@ -9,13 +9,19 @@ import { useEffect } from 'react';
 
 export const AuthContext = createContext()
 
+
 const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState('dark');
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "light" ? "dark" : "light"));
+      };
 
     const providerLogin = () =>{
         setLoading(true);
@@ -56,7 +62,7 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
-    const authInfo = {user, loading, providerLogin, githubProviderLogin, updateUserProfile, logIn, logOut, createUser}
+    const authInfo = {user, loading, theme, toggleTheme, providerLogin, githubProviderLogin, updateUserProfile, logIn, logOut, createUser}
 
     return (
         <AuthContext.Provider value={authInfo}>
