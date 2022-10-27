@@ -8,6 +8,7 @@ import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
+import ReactTooltip from 'react-tooltip';
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
@@ -34,7 +35,7 @@ const Header = () => {
             {
                 user?.uid ?
                 <>
-                <span>{user?.displayName}</span>
+                <span></span>
                 <Button onClick={handleLogOut} variant="danger">Log Out</Button>
                 </>
                 :
@@ -44,10 +45,10 @@ const Header = () => {
                 </>
             }
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2}>
               {user?.photoURL ?
-              <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
-              : <FaUser></FaUser>
+              <Image data-tip={user?.displayName} style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
+              : <FaUser data-tip="guest"></FaUser>
               }
             </Nav.Link>
           </Nav>
@@ -55,6 +56,7 @@ const Header = () => {
             <LeftSideNav></LeftSideNav>
           </div>
         </Navbar.Collapse>
+        <ReactTooltip />
       </Container>
     </Navbar>
   );

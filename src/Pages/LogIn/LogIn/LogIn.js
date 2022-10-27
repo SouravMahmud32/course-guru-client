@@ -8,7 +8,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const LogIn = () => {
   const [error, setError] = useState("");
-  const { logIn } = useContext(AuthContext);
+  const { logIn, providerLogin, githubProviderLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,35 +33,79 @@ const LogIn = () => {
       });
   };
 
+  const handleGoogleSignIn = () => {
+    providerLogin()
+    .then(result =>{
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  };
+
+  const handleGithubSignIn = () =>{
+    githubProviderLogin()
+    .then(result =>{
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  }
+
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            name="email"
-            type="email"
-            placeholder="email"
-            required
-          />
-        </Form.Group>
+      <div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder="email"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            name="password"
-            type="password"
-            placeholder="password"
-            required
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder="password"
+              required
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-        <Form.Text className="text-danger">{error}</Form.Text>
-      </Form>
-      <p>New to courseGuru <Link to='/register'><small>Create a New Account</small></Link></p>
+          <Button variant="primary" type="submit">
+            Login
+          </Button>
+          <Form.Text className="text-danger">{error}</Form.Text>
+        </Form>
+        <p>
+          New to courseGuru{" "}
+          <Link to="/register">
+            <small>Create a New Account</small>
+          </Link>
+        </p>
+      </div>
+      <div>
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn btn-outline btn-success mb-3"
+        >
+          Log In with Google
+        </button>
+        <br />
+        <button
+          onClick={handleGithubSignIn}
+          className="btn btn-outline btn-dark"
+        >
+          Log In with Github
+        </button>
+      </div>
     </div>
   );
 };

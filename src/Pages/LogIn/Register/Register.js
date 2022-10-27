@@ -7,7 +7,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, providerLogin, githubProviderLogin } = useContext(AuthContext);
+  const { createUser, providerLogin, githubProviderLogin, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,12 +22,24 @@ const Register = () => {
         const user = result.user;
         setError("");
         form.reset();
+        handleUpdateUserProfile(name, photoURL);
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
       });
   };
+
+  const handleUpdateUserProfile = (name, photoURL) =>{
+    const profile = {
+        displayName: name,
+        photoURL: photoURL
+    }
+    updateUserProfile(profile)
+    .then(() =>{})
+    .catch(error => console.error(error))
+  }
+
   const handleGoogleSignIn = () => {
     providerLogin()
     .then(result =>{
@@ -95,10 +107,11 @@ const Register = () => {
       </div>
       <button
               onClick={handleGoogleSignIn}
-              className="btn btn-outline btn-success"
+              className="btn btn-outline btn-success mb-3"
             >
               Sign In with Google
             </button>
+            <br />
       <button
               onClick={handleGithubSignIn}
               className="btn btn-outline btn-success"
