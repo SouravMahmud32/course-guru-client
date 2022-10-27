@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 
 const Courses = () => {
   const courses = useLoaderData();
-  const {title, details, price, image_url} = courses;
+  const {title, details, price, image_url, duration} = courses;
   return (
     <Card>
       <Card.Img variant="top" src={image_url} />
@@ -15,6 +15,7 @@ const Courses = () => {
           {details}
         </Card.Text>
         <h2>Fees: ${price}</h2>
+        <h4>Duration: {duration}</h4>
         <Button variant="danger">Enroll Now</Button>
       </Card.Body>
     </Card>

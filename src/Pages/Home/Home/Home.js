@@ -6,7 +6,6 @@ const Home = () => {
     const allCourses = useLoaderData();
     return (
         <div>
-            <h2>This is home component {allCourses.length}</h2>
             {
                 allCourses.map(courses => <CouseseSummaryCard
                 key={courses._id}
