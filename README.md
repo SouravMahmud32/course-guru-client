@@ -1,3 +1,18 @@
+# courseGuru
+***
+This is a educational website. Where people can learn about different type of IT technologies.
+Threre are different types of courses for different categories people. It will be easy to learn and have fun.
+
+***
+# Courses
+Seven popular courses
+## Enroll
+Easy to enroll
+### Curiculam
+Handy cariculam easy to learn
+
+***
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

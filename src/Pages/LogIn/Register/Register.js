@@ -7,7 +7,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, providerLogin, githubProviderLogin, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,27 +40,7 @@ const Register = () => {
     .catch(error => console.error(error))
   }
 
-  const handleGoogleSignIn = () => {
-    providerLogin()
-    .then(result =>{
-        const user = result.user;
-        console.log(user);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-  };
 
-  const handleGithubSignIn = () =>{
-    githubProviderLogin()
-    .then(result =>{
-        const user = result.user;
-        console.log(user);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-  }
 
   return (
     <div>
@@ -105,19 +85,6 @@ const Register = () => {
           Already Have an Account <Link to="/login">Login</Link>
         </p>
       </div>
-      <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-outline btn-success mb-3"
-            >
-              Sign In with Google
-            </button>
-            <br />
-      <button
-              onClick={handleGithubSignIn}
-              className="btn btn-outline btn-success"
-            >
-              Sign In with Github
-            </button>
     </div>
   );
 };

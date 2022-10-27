@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import ReactTooltip from 'react-tooltip';
+import { FaCuttlefish } from "react-icons/fa";
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
@@ -20,15 +21,15 @@ const Header = () => {
     }
 
   return (
-    <Navbar collapseOnSelect className="mb-4" expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect className="mb-4 text-decoration-none" expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand><Link to='/'>courseGuru</Link></Navbar.Brand>
+        <Navbar.Brand><Link style={{textDecoration: 'none'}} to='/'><FaCuttlefish></FaCuttlefish>courseGuru</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-            <Nav.Link><Link to='/'>Courses</Link></Nav.Link>
-            <Nav.Link><Link to='/blog'>Blogs</Link></Nav.Link>
+          <Nav className="me-auto text-decoration-none">
+            <Nav.Link><Link style={{textDecoration: 'none'}} to='/'>Home</Link></Nav.Link>
+            <Nav.Link><Link style={{textDecoration: 'none'}} to='/'>Courses</Link></Nav.Link>
+            <Nav.Link><Link style={{textDecoration: 'none'}} to='/blog'>Blogs</Link></Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">
@@ -40,8 +41,8 @@ const Header = () => {
                 </>
                 :
                 <>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
+                    <Link style={{textDecoration: 'none'}} className='me-2' to='/login'>Login</Link>
+                    <Link style={{textDecoration: 'none'}}  to='/register'>Register</Link>
                 </>
             }
             </Nav.Link>

@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const LogIn = () => {
   const [error, setError] = useState("");
@@ -96,14 +97,14 @@ const LogIn = () => {
           onClick={handleGoogleSignIn}
           className="btn btn-outline btn-success mb-3"
         >
-          Log In with Google
+         <FaGoogle></FaGoogle> Log In with Google
         </button>
         <br />
         <button
           onClick={handleGithubSignIn}
           className="btn btn-outline btn-dark"
         >
-          Log In with Github
+         <FaGithub></FaGithub> Log In with Github
         </button>
       </div>
     </div>
