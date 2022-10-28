@@ -3,6 +3,10 @@
 This is a educational website. Where people can learn about different type of IT technologies.
 Threre are different types of courses for different categories people. It will be easy to learn and have fun.
 
+##live site
+
+[Live site link](https://course-guru-19603.web.app)
+
 ***
 # Courses
 Seven popular courses
