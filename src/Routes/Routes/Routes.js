@@ -15,33 +15,43 @@ export const routes = createBrowserRouter([
     element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-        {
-            path: '/',
-            element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/courses')
-        },
-        {
-            path: '/category/:id',
-            element: <Category></Category>,
-            loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
-        },
-        {
-            path: '/courses/:id',
-            element: <PrivateRoute><Courses></Courses></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
-        },
-        {
-            path: '/blog',
-            element: <Blogs></Blogs>
-        },
-        {
-            path: '/login',
-            element: <LogIn></LogIn>
-        },
-        {
-            path: '/register',
-            element: <Register></Register>
-        }
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch('https://course-guru-server-sigma.vercel.app/courses')
+      },
+      {
+        path: "/category/:id",
+        element: <Category></Category>,
+        loader: ({ params }) =>
+          fetch(
+            `https://course-guru-server-sigma.vercel.app/category/${params.id}`
+          )
+      },
+      {
+        path: "/courses/:id",
+        element: (
+          <PrivateRoute>
+            <Courses></Courses>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://course-guru-server-sigma.vercel.app/courses/${params.id}`
+          )
+      },
+      {
+        path: "/blog",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
   },
 ]);
