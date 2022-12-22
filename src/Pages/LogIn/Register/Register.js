@@ -47,17 +47,17 @@ const Register = () => {
       <div>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Your Full Name</Form.Label>
+            <Form.Label className="text-secondary">Your Full Name</Form.Label>
             <Form.Control name="name" type="text" placeholder="full name" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Photo URL</Form.Label>
+            <Form.Label className="text-secondary">Photo URL</Form.Label>
             <Form.Control name="photoURL" type="text" placeholder="photo url" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label className="text-secondary">Email address</Form.Label>
             <Form.Control
               name="email"
               type="email"
@@ -67,7 +67,7 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="text-secondary">Password</Form.Label>
             <Form.Control
               name="password"
               type="password"
@@ -82,7 +82,7 @@ const Register = () => {
           <Form.Text className="text-danger">{error}</Form.Text>
         </Form>
         <p>
-          Already Have an Account <Link to="/login">Login</Link>
+          <span className="text-danger">Already Have an Account</span> <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

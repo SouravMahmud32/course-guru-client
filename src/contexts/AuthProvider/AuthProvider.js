@@ -21,6 +21,7 @@ const AuthProvider = ({children}) => {
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === "light" ? "dark" : "light"));
+        
       };
 
     const providerLogin = () =>{

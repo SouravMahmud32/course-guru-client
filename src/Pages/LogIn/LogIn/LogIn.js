@@ -61,7 +61,7 @@ const LogIn = () => {
       <div>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label className="text-secondary">Email address</Form.Label>
             <Form.Control
               name="email"
               type="email"
@@ -71,7 +71,7 @@ const LogIn = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="text-secondary">Password</Form.Label>
             <Form.Control
               name="password"
               type="password"
@@ -86,7 +86,7 @@ const LogIn = () => {
           <Form.Text className="text-danger">{error}</Form.Text>
         </Form>
         <p>
-          New to courseGuru{" "}
+          <span className="text-danger">New to courseGuru</span>{" "}
           <Link to="/register">
             <small>Create a New Account</small>
           </Link>
